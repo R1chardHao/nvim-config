@@ -1,3 +1,4 @@
-require("rho.packer")
-require("rho.remap")
-require("rho.set")
+require("rho.options")
+require("rho.keymaps")
+require("rho.plugin")
+
