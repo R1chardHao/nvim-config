@@ -18,5 +18,23 @@ return {
     },
 
     -- Highlight same word
-    {'RRethy/vim-illuminate'}
+    {'RRethy/vim-illuminate'},
+
+    {
+        "echasnovski/mini.bufremove",
+        config = function ()
+            require('mini.bufremove').setup()
+
+            local nvimTreeApi = require("nvim-tree.api")
+            local function deleteBuffer()
+                if (nvimTreeApi.tree.is_visible()) then
+                    MiniBufremove.delete()
+                else
+                    vim.cmd('bd')
+                end
+            end
+
+            vim.keymap.set('n', '<leader>x', deleteBuffer)
+        end
+    }
 }
