@@ -1,5 +1,8 @@
 return {
-    { "tpope/vim-fugitive" },
+    {
+        "tpope/vim-fugitive",
+        enabled = false
+    },
 
     {
         "sindrets/diffview.nvim",
@@ -43,4 +46,17 @@ return {
             end
         },
     },
+    {
+        "NeogitOrg/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim",         -- required
+            "nvim-telescope/telescope.nvim", -- optional
+            "sindrets/diffview.nvim",        -- optional
+        },
+        config = function ()
+            local neogit = require('neogit')
+            neogit.setup {}
+            vim.api.nvim_create_user_command( 'Git', 'Neogit', {})
+        end,
+    }
 }
