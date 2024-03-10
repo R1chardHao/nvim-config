@@ -14,7 +14,7 @@ return {
             -- empty setup using defaults
             require("nvim-tree").setup({
                 view = {
-                    width = 60
+                    width = '30%'
                 }
             })
 
