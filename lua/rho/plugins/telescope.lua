@@ -2,18 +2,20 @@ return {
     'nvim-telescope/telescope.nvim', tag = '0.1.2',
     -- or                              , branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = {
-        defaults = {
-            layout_config = {
-                vertical = {
-                    preview_cutoff = 0,
-                },
-            },
-            path_display = { truncate = 3 },
-        }
-    },
 
     config = function ()
+        require('telescope').setup{
+            defaults = {
+                layout_strategy = "vertical",
+                layout_config = {
+                    vertical = {
+                        preview_cutoff = 0,
+                    },
+                },
+                path_display = { truncate = 3 },
+            }
+        }
+
         local function getVisualSelection()
             vim.cmd('noau normal! "vy"')
             local text = vim.fn.getreg('v')

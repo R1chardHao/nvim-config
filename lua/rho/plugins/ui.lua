@@ -12,7 +12,11 @@ return {
             vim.g.loaded_netrwPlugin = 1
 
             -- empty setup using defaults
-            require("nvim-tree").setup()
+            require("nvim-tree").setup({
+                view = {
+                    width = 60
+                }
+            })
 
             local function open_nvim_tree(data)
                 -- buffer is a directory
@@ -61,7 +65,7 @@ return {
 
             require("lualine").setup {
                 options = {
-                    theme = 'auto',
+                    theme = 'dracula',
                     globalstatus = true
                 },
                 sections = {
