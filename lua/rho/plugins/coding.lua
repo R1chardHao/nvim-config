@@ -23,9 +23,9 @@ return {
         config = function ()
             require('mini.bufremove').setup()
 
-            local nvimTreeApi = require("nvim-tree.api")
             local function deleteBuffer()
-                if (nvimTreeApi.tree.is_visible()) then
+                local nvimTreeApi = require("nvim-tree.api")
+                if (nvimTreeApi ~= nil and nvimTreeApi.tree.is_visible()) then
                     MiniBufremove.delete()
                 else
                     vim.cmd('bd')
@@ -86,5 +86,5 @@ return {
     },
 
     -- AI assistant
-    { "Exafunction/codeium.vim" },
+    { "Exafunction/codeium.vim", enabled=false },
 }
