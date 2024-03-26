@@ -23,7 +23,7 @@ return {
         config = function ()
             require('mini.bufremove').setup()
 
-            local function deleteBuffer()
+            --[[ local function deleteBuffer()
                 local nvimTreeApi = require("nvim-tree.api")
                 if (nvimTreeApi ~= nil and nvimTreeApi.tree.is_visible()) then
                     MiniBufremove.delete()
@@ -32,7 +32,7 @@ return {
                 end
             end
 
-            vim.keymap.set('n', '<leader>x', deleteBuffer)
+            vim.keymap.set('n', '<leader>x', deleteBuffer) ]]
         end
     },
 
