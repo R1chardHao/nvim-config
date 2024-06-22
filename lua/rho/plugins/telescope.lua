@@ -38,7 +38,7 @@ return {
         vim.keymap.set('v', '<leader>fs', function() builtin.grep_string({ search=getVisualSelection() }) end, {})
         vim.keymap.set('n', '<leader>bl', builtin.buffers, {})
         vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-        vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, {})
+        vim.keymap.set('n', '<leader>fds', builtin.lsp_document_symbols, {})
         vim.keymap.set('n', 'gr', function ()
             builtin.lsp_references({
                 layout_strategy = 'vertical',
