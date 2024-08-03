@@ -34,11 +34,11 @@ return {
         vim.keymap.set('v', '<leader>ff', function() builtin.find_files({ default_text=getVisualSelection() }) end, {})
         vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
         vim.keymap.set('v', '<leader>fg', function() builtin.live_grep({ default_text=getVisualSelection() }) end, {})
-        vim.keymap.set('n', '<leader>fs', builtin.grep_string, {})
-        vim.keymap.set('v', '<leader>fs', function() builtin.grep_string({ search=getVisualSelection() }) end, {})
+        vim.keymap.set('n', '<leader>fw', builtin.grep_string, {})
+        vim.keymap.set('v', '<leader>fw', function() builtin.grep_string({ search=getVisualSelection() }) end, {})
         vim.keymap.set('n', '<leader>bl', builtin.buffers, {})
         vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-        vim.keymap.set('n', '<leader>fds', builtin.lsp_document_symbols, {})
+        vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, {})
         vim.keymap.set('n', 'gr', function ()
             builtin.lsp_references({
                 layout_strategy = 'vertical',

@@ -22,17 +22,6 @@ return {
         "echasnovski/mini.bufremove",
         config = function ()
             require('mini.bufremove').setup()
-
-            --[[ local function deleteBuffer()
-                local nvimTreeApi = require("nvim-tree.api")
-                if (nvimTreeApi ~= nil and nvimTreeApi.tree.is_visible()) then
-                    MiniBufremove.delete()
-                else
-                    vim.cmd('bd')
-                end
-            end
-
-            vim.keymap.set('n', '<leader>x', deleteBuffer) ]]
         end
     },
 
@@ -54,13 +43,15 @@ return {
 
             -- keymap
             vim.keymap.set("n", "<leader>Ha", function()
-                harpoon:list():append()
+                harpoon:list():add()
                 harpoon.ui:toggle_quick_menu(harpoon:list())
             end)
             vim.keymap.set("n", "<leader>Hv", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
             vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
             vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
             vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
+            vim.keymap.set("n", "<leader>4", function() harpoon:list():select(3) end)
+            vim.keymap.set("n", "<leader>5", function() harpoon:list():select(3) end)
         end
     },
 

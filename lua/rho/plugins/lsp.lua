@@ -72,7 +72,7 @@ return {
           if not entry then
             cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
           else
-            cmp.confirm()
+            cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace })
           end
         elseif luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()

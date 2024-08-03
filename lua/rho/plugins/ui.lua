@@ -21,14 +21,6 @@ return {
   },
 
   {
-    "navarasu/onedark.nvim",
-    config = function ()
-      require('onedark').load()
-      vim.cmd.colorscheme("onedark")
-    end
-  },
-
-  {
     "nvim-lualine/lualine.nvim",
     dependencies = {'nvim-tree/nvim-web-devicons'},
     config = function ()
@@ -63,4 +55,13 @@ return {
       }
     end
   },
+
+  -- colorschemes
+  {
+    "navarasu/onedark.nvim",
+    config = function ()
+      -- require('onedark').load()
+    end
+  },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
 }
