@@ -5,11 +5,9 @@ return {
 
     {
         "sindrets/diffview.nvim",
-        config = function ()
-            vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<CR>")
-            vim.keymap.set("n", "<leader>glf", ":DiffviewFileHistory %<CR>")
-            vim.keymap.set("n", "<leader>glb", ":DiffviewFileHistory .<CR>")
-        end
+        opts = {
+          enhanced_diff_hl = true,
+        },
     },
 
     {

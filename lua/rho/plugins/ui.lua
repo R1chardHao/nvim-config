@@ -1,48 +1,5 @@
 return {
   {
-    "nvim-tree/nvim-tree.lua",
-    enabled = false,
-    version = "*",
-    lazy = false,
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      -- disable netrw at the very start of your init.lua (strongly advised)
-      vim.g.loaded_netrw = 1
-      vim.g.loaded_netrwPlugin = 1
-
-      -- empty setup using defaults
-      require("nvim-tree").setup({
-        view = {
-          width = '30%'
-        }
-      })
-
-      local function open_nvim_tree(data)
-        -- buffer is a directory
-        local directory = vim.fn.isdirectory(data.file) == 1
-
-        if not directory then
-          return
-        end
-
-        -- change to the directory
-        vim.cmd.cd(data.file)
-
-        -- open the tree
-        require("nvim-tree.api").tree.open()
-      end
-
-      vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree})
-
-      -- keymap
-      vim.keymap.set("n", "<leader>ee", ":NvimTreeToggle<CR>")
-      vim.keymap.set("n", "<leader>ef", ":NvimTreeFindFile<CR>")
-    end,
-  },
-
-  {
     'stevearc/oil.nvim',
     opts = {
       keymaps = {
@@ -51,6 +8,16 @@ return {
     },
     -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  {
+    'echasnovski/mini.files',
+    config = function ()
+      require('mini.files').setup()
+      vim.keymap.set('n', '<leader>ee', MiniFiles.open)
+      vim.keymap.set('n', '<leader>ef', function ()
+        MiniFiles.open(vim.api.nvim_buf_get_name(0))
+      end)
+    end
   },
 
   {
