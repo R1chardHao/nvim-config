@@ -1,3 +1,8 @@
 return {
-    { 'easymotion/vim-easymotion' }
+    { 'easymotion/vim-easymotion' },
+
+    {
+      "R1chardHao/scratch.nvim",
+      opts = {}
+    }
 }
