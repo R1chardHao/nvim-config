@@ -62,6 +62,18 @@ return {
             vim.keymap.set("n", "<leader>5", function() harpoon:list():select(3) end)
         end
     },
+    {
+      "ThePrimeagen/refactoring.nvim",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-treesitter/nvim-treesitter",
+      },
+      config = function()
+        require("refactoring").setup()
+        vim.keymap.set("x", "<leader>re", ":Refactor extract ")
+        vim.keymap.set("x", "<leader>rv", ":Refactor extract_var ")
+      end,
+    },
 
     {
         "kevinhwang91/nvim-ufo",
@@ -85,5 +97,12 @@ return {
     },
 
     -- AI assistant
-    { "Exafunction/codeium.vim", enabled=false },
+    {
+      "Exafunction/codeium.vim",
+      enabled = false,
+      config = function()
+        vim.keymap.set('i', '<C-]>', function() return vim.fn['codeium#Accept']() end, { expr = true })
+        vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+      end
+    },
 }

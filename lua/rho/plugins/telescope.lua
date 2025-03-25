@@ -30,15 +30,19 @@ return {
         end
 
         local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+        local themes = require('telescope.themes')
+        local opt = themes.get_ivy({
+          layout_config = { height = 0.5 }
+        })
+        vim.keymap.set('n', '<leader>ff', function() builtin.find_files(opt) end, {})
         vim.keymap.set('v', '<leader>ff', function() builtin.find_files({ default_text=getVisualSelection() }) end, {})
-        vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+        vim.keymap.set('n', '<leader>fg', function() builtin.live_grep(opt) end, {})
         vim.keymap.set('v', '<leader>fg', function() builtin.live_grep({ default_text=getVisualSelection() }) end, {})
-        vim.keymap.set('n', '<leader>fw', builtin.grep_string, {})
+        vim.keymap.set('n', '<leader>fw', function() builtin.grep_string(opt) end, {})
         vim.keymap.set('v', '<leader>fw', function() builtin.grep_string({ search=getVisualSelection() }) end, {})
-        vim.keymap.set('n', '<leader>bl', builtin.buffers, {})
-        vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-        vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, {})
+        vim.keymap.set('n', '<leader>bl', function() builtin.buffers(opt) end, {})
+        vim.keymap.set('n', '<C-p>', function() builtin.git_files(opt) end, {})
+        vim.keymap.set('n', '<leader>fs', function() builtin.lsp_document_symbols(opt) end, {})
         vim.keymap.set('n', 'gr', function ()
             builtin.lsp_references({
                 layout_strategy = 'vertical',
@@ -46,5 +50,6 @@ return {
                 show_line = false
             })
         end, {})
+        vim.keymap.set('n', '<leader>fgs', function() builtin.git_stash(opt) end, {})
     end
 }
