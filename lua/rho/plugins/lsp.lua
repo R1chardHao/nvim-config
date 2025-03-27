@@ -216,6 +216,8 @@ return {
       completion = {
         list = { selection = { preselect = true, auto_insert = false } }
       },
+
+      fuzzy = { implementation = "lua" }
     },
     opts_extend = { "sources.default" }
   }

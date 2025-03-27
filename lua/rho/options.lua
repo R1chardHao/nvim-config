@@ -18,5 +18,5 @@ vim.opt.signcolumn = "yes"
 vim.g.markdown_fenced_languages = {"javascript", "typescript"}
 
 -- Environment variables
-vim.env.NVIM_CONFIG = "~/.config/nvim/"
---vim.env.NVIM_CONFIG = "c:\\Users\\Richard\\AppData\\Local\\nvim\\"
+-- vim.env.NVIM_CONFIG = "~/.config/nvim/"
+vim.env.NVIM_CONFIG = "c:\\Users\\rih2szh\\AppData\\Local\\nvim\\"
