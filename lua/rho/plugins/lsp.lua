@@ -54,10 +54,31 @@ return {
         end,
       })
 
-      -- (Optional) Configure lua language server for neovim
-      require('lspconfig').lua_ls.setup({})
-      require'lspconfig'.gopls.setup{}
+      ----------------
+      -- LSP server config
+      ----------------
 
+      -- Typescript server with Vue support:
+      -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#ts_ls
+      -- https://github.com/neovim/neovim/discussions/27891
+      local data_path = vim.fn.stdpath('data')
+      local vue_ls_location = data_path.."/mason/packages/vue-language-server/node_modules/@vue/language-server"
+      local ts_ls_config = {
+        init_options = {
+          plugins = {
+            {
+              name = "@vue/typescript-plugin",
+              location = vue_ls_location,
+              languages = {"javascript", "typescript", "vue"},
+            },
+          },
+        },
+        filetypes = {
+          "javascript",
+          "typescript",
+          "vue",
+        },
+      }
 
       -- Mason setup
       require('mason').setup({})
@@ -65,7 +86,11 @@ return {
         ensure_installed = {},
         handlers = {
           function(server_name)
-            require('lspconfig')[server_name].setup({})
+            local opt = {}
+            if server_name == "ts_ls" and require('mason-registry').is_installed('vue-language-server') then
+              opt = ts_ls_config
+            end
+            require('lspconfig')[server_name].setup(opt)
           end,
         },
       })
