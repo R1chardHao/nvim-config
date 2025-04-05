@@ -28,3 +28,6 @@ vim.keymap.set("n", "<leader>x", ":bd<CR>")
 -- Control tab
 vim.keymap.set("n", "tn", ":tabnew<CR>")
 vim.keymap.set("n", "td", ":tabclose<CR>")
+
+-- Terminal
+vim.keymap.set("t", "<esc>", "<c-\\><c-n>")
