@@ -13,6 +13,8 @@ vim.keymap.set("n", "<leader>p", "\"+p")
 vim.keymap.set("v", "<leader>p", "\"+p")
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>gy", "ggVG\"+y")
+vim.keymap.set("n", "<leader>gp", "ggVG\"+p")
 -- Switch window
 vim.keymap.set("n", "<leader>wh", ":wincmd h<CR>")
 vim.keymap.set("n", "<leader>wj", ":wincmd j<CR>")
@@ -28,3 +30,6 @@ vim.keymap.set("n", "<leader>x", ":bd<CR>")
 -- Control tab
 vim.keymap.set("n", "tn", ":tabnew<CR>")
 vim.keymap.set("n", "td", ":tabclose<CR>")
+
+-- Terminal
+vim.keymap.set("t", "<esc>n", "<c-\\><c-n>")

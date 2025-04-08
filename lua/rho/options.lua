@@ -15,6 +15,7 @@ vim.opt.incsearch = true
 vim.opt.hlsearch = false
 vim.opt.scrolloff = 5
 vim.opt.signcolumn = "yes"
+vim.opt.splitright = true
 vim.g.markdown_fenced_languages = {"javascript", "typescript"}
 
 -- Environment variables

@@ -18,8 +18,8 @@ return {
 
     {
         'echasnovski/mini.surround',
-        config = function()
-            require('mini.surround').setup()
+        config = function ()
+          require('mini.surround').setup()
         end
     },
 
@@ -99,10 +99,12 @@ return {
     -- AI assistant
     {
       "Exafunction/codeium.vim",
-      enabled = false,
+      cmd = "Codeium",
       config = function()
-        vim.keymap.set('i', '<C-]>', function() return vim.fn['codeium#Accept']() end, { expr = true })
+        vim.keymap.set('i', '<a-]>', function() return vim.fn['codeium#Accept']() end, { expr = true })
         vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+
+        vim.api.nvim_create_user_command( 'Codeium', 'echo "Codeium Loaded"', {})
       end
     },
 }
