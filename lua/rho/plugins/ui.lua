@@ -36,7 +36,9 @@ return {
       require("lualine").setup {
         options = {
           theme = 'dracula',
-          globalstatus = true
+          globalstatus = true,
+          section_separators = '',
+          component_separators = ''
         },
         sections = {
           lualine_b = {
