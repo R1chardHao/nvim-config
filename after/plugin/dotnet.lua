@@ -32,6 +32,7 @@ function openSolution(solution, dir)
             return dir
         end
     })
+    require('easy-dotnet.default-manager').set_default_solution(nil, solution)
 end
 
 require('lspconfig').csharp_ls.setup({

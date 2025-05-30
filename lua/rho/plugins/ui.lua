@@ -21,7 +21,15 @@ return {
   },
 
   {
+    "echasnovski/mini.statusline",
+    config = function ()
+      require('mini.statusline').setup()
+    end
+  },
+
+  {
     "nvim-lualine/lualine.nvim",
+    enabled=false,
     dependencies = {'nvim-tree/nvim-web-devicons'},
     config = function ()
       local function trunc(max_len)

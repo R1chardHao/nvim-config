@@ -6,9 +6,9 @@ return {
       {'neovim/nvim-lspconfig'},
       {'williamboman/mason.nvim'},
       {'williamboman/mason-lspconfig.nvim'},
-      { 'saghen/blink.cmp' },
+      -- { 'saghen/blink.cmp' },
 
-      --[[ -- Autocompletion
+      -- Autocompletion
       {'hrsh7th/nvim-cmp'},
       {'hrsh7th/cmp-buffer'},
       {'hrsh7th/cmp-path'},
@@ -19,7 +19,7 @@ return {
 
       -- Snippets
       {'L3MON4D3/LuaSnip', version = 'v2.*', build = 'make install_jsregexp'},
-      {'rafamadriz/friendly-snippets'}, ]]
+      {'rafamadriz/friendly-snippets'},
     },
     config = function ()
       -- This will avoid an annoying layout shift in the screen
@@ -31,7 +31,7 @@ return {
       lspconfig_defaults.capabilities = vim.tbl_deep_extend(
         'force',
         lspconfig_defaults.capabilities,
-        require('blink.cmp').get_lsp_capabilities()
+        require('cmp_nvim_lsp').default_capabilities()
       )
 
       -- This is where you enable features that only work
@@ -95,7 +95,7 @@ return {
         },
       })
 
-      --[[
+
       ----------------
       -- Autocompletion
       ----------------
@@ -182,7 +182,7 @@ return {
           }
         })
       })
-      ]]
+
 
       ----------------
       -- diagnostic
@@ -197,6 +197,7 @@ return {
 
   {
     'saghen/blink.cmp',
+    enabled=false,
     -- optional: provides snippets for the snippet source
     dependencies = 'rafamadriz/friendly-snippets',
 
